@@ -1,0 +1,12 @@
+.Inputgroup{
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    align-items: flex-start;
+}
+
+
+
+.Inputgroup > input{
+    padding: .25rem .5rem;
+}
