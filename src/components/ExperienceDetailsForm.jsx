@@ -1,5 +1,6 @@
 import Inputgroup from "./Inputgroup"
-export default function ExperienceDetailsForm({data, handleChange}){
+import { Button } from "@mui/material"
+export default function ExperienceDetailsForm({data, handleChange,showForm}){
 
 
     return(
@@ -12,6 +13,7 @@ export default function ExperienceDetailsForm({data, handleChange}){
             <Inputgroup labelText={"Location"} inputType={"text"} name={"location"} placeholder={"Enter location"} value={data.location} handleChange={handleChange}/>
             <label htmlFor="description">Description</label>
             <textarea placeholder="Enter description" name="description" id="description" cols="30" rows="10" value={data.description} onChange={(e)=> handleChange("description",e.target.value)} ></textarea>
+            <Button onClick={showForm} variant="contained" color="warning">Submit</Button>
         </form>
     )
 }
