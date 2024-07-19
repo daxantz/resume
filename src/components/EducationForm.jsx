@@ -29,7 +29,7 @@ export default function EducationForm({data, handleChange, addItem, updateData, 
                     </div>
                     <div className="date-group">
                         <label htmlFor="startDate">Start Date</label>
-                        <input type="date" id="startDate" name="startDate" value={data.startDate} onChange={(e)=>handleChange('starDate',e.target.value)}/>
+                        <input type="date" id="startDate" name="startDate" value={data.startDate} onChange={(e)=>handleChange('startDate',e.target.value)}/>
                     </div>
                     <div className="date-group">
                         <label htmlFor="endDate">End Date</label>
