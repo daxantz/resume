@@ -12,10 +12,30 @@ export default function EducationForm({data, handleChange, addItem, updateData, 
         
     }
 
-    function handleDelete(){
-        deleteItem(data.id)
+    function cancel(){
+        if(isShowing){
+            setIsShowing(!isShowing)
+        }else if(isEditing){
+            setIsEditing(false);
+            
+        }
+
         
-        setIsEditing(false)
+    }
+
+    function handleDelete(){
+
+        if(isShowing){
+            
+            return
+        }else{
+            deleteItem(data.id)
+            setIsEditing(false)
+        }
+        
+        
+        
+        
     }
     return(
         <form action="">
@@ -43,13 +63,18 @@ export default function EducationForm({data, handleChange, addItem, updateData, 
                         <button onClick={(e)=>{
                             e.preventDefault()
                             handleDelete();
+                            
                         }}>Delete</button>
                         <button onClick={(e)=>{
                             e.preventDefault()
                             handleFunctions()
                             //hide form
                         }}>Save</button>
-                        <button>Cancel</button>
+                        <button onClick={(e)=>{
+                            e.preventDefault();
+                            
+                            cancel()
+                        }}>Cancel</button>
                     </div>
             </form>
     )
