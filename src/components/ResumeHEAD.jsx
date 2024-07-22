@@ -1,11 +1,11 @@
-export default function ResumeHead(){
+export default function ResumeHead({data}){
     return(
         <div>
-            <h1>Dax Davis</h1>
+            <h1>{data.firstName} {data.lastName}</h1>
             <div className="info">
-                <p>daxantz@gmail.com</p>
-                <p>732-859-3845</p>
-                <p>New Jersey</p>
+                <p>{data.email}</p>
+                <p>{data.phoneNumber}</p>
+                <p>{data.address}</p>
             </div>
         </div>
     )
