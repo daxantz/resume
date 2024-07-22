@@ -1,13 +1,13 @@
 import ResumeHead from "./ResumeHEAD";
 import ResumeBody from "./ResumeBody";
-export default function ResumeBox({data}){
+export default function ResumeBox({data, educationData, experienceData}){
     
     return(
         <div>
             {/* resume header */}
-            <ResumeHead data={data} />
+            <ResumeHead data={data.personalInputValues} />
             {/* resumebody */}
-            <ResumeBody/>
+            <ResumeBody data={data.educationInputValues} educationData={educationData} experienceData={experienceData}/>
         </div>
     )
 
