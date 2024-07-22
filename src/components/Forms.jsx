@@ -1,11 +1,11 @@
 import PersonalDetailsBox from "./PersonalDetailsBox"
 import EducationDetailsBox from "./EducationDetailsBox"
 import ExperienceDetailsBox from "./ExperienceDetailsBox"
-export default function Forms(){
+export default function Forms({data, handleChange}){
     return (
         <div>
             // personal details box
-            <PersonalDetailsBox/>
+            <PersonalDetailsBox data={data} handleChange={handleChange}/>
             //education details box
             <EducationDetailsBox/>
             //experiecne details box
