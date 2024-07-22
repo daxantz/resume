@@ -4,7 +4,7 @@ import { v4 } from "uuid";
 
 
 
-export default function EducationDetailsItem({item, data,  addItem, setData, deleteItem}){
+export default function EducationDetailsItem({item, data,  addItem, setData, deleteItem, handleChange}){
     //condtionally render form/form component if clicked on
     // import a form component
     const [isEditing, setIsEditing] = useState(false);
@@ -18,12 +18,13 @@ export default function EducationDetailsItem({item, data,  addItem, setData, del
     })
 
     
-    const handleChange = (input, value)=>{
-        setEditFormValues(currValues=>({
-                ...currValues,
-                [input]:value
-        }))
-    }
+    const handleEditingChange = (input, value) => {
+        console.log(`Updating ${input} with value: ${value}`);
+        setEditFormValues(prevValues => ({
+          ...prevValues,
+          [input]: value
+        }));
+      };
 
     const updateData = (id) => {
         const updatedData = data.map(item => {
@@ -42,7 +43,7 @@ export default function EducationDetailsItem({item, data,  addItem, setData, del
     return(
         <div>
             {isEditing ? (
-                <EducationForm data={editFormValues} handleChange={handleChange} addItem={addItem} isEditing={isEditing} updateData={updateData} setIsEditing={setIsEditing} deleteItem={deleteItem}/>
+                <EducationForm data={editFormValues} handleChange={handleChange} handleEditingChange={handleEditingChange} addItem={addItem} isEditing={isEditing} updateData={updateData} setIsEditing={setIsEditing} deleteItem={deleteItem}/>
         ): (
             <div className="item">
                 <p>{editFormValues.school}</p>
