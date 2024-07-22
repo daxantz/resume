@@ -13,9 +13,23 @@ export default function ExperienceForm({data, handleChange, addItem, updateData,
     }
 
     function handleDelete(){
-        deleteItem(data.id)
-        
-        setIsEditing(false)
+
+        if(isShowing){
+            return
+        }else{
+            deleteItem(data.id)
+            setIsEditing(false)
+        }
+    }
+
+
+    function cancel(){
+        if(isShowing){
+            setIsShowing(!isShowing)
+        }else if(isEditing){
+            setIsEditing(false);
+            
+        }
     }
     return(
         <form action="">
@@ -53,7 +67,10 @@ export default function ExperienceForm({data, handleChange, addItem, updateData,
                             handleFunctions()
                             //hide form
                         }}>Save</button>
-                        <button>Cancel</button>
+                        <button onClick={(e)=>{
+                            e.preventDefault()
+                            cancel();
+                        }}>Cancel</button>
                     </div>
             </form>
     )
