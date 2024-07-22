@@ -1,6 +1,7 @@
 import EducationForm from "./EducationForm"
 import { useState } from "react"
 import { v4 } from "uuid"
+import EducationDetailsItem from "./EducationDetailsItem"
 export default function EducationDetailsBox(){
 
     let [inputValues, setInputValues] = useState({
@@ -52,15 +53,23 @@ export default function EducationDetailsBox(){
     return(
         <div>
             <h2>Education</h2>
-            <div className="item">
+            {/* <div className="item">
                 <p>Brookdale</p>
                 <img src="" alt="EYE" />
-            </div>
-
-            <EducationForm data={inputValues} handleChange={handleChange} addItem={addItem} isShowing={isShowing} setIsShowing={setIsShowing} />
+            </div> */}
+            {isShowing ? (
+                <EducationForm data={inputValues} handleChange={handleChange} addItem={addItem} isShowing={isShowing} setIsShowing={setIsShowing} />
+            ):(
+                <div>
+                    {data.map((item) =>(
+                        <EducationDetailsItem key={item.id} item={item} data={data} setData={setData} addItem={addItem} deleteItem={deleteItem}/>
+                    ))}
+                </div>
+            )}
+            
 
             <div>
-                <button>Add Education Item</button>
+                <button onClick={()=> setIsShowing(!isShowing)}>Add Education Item</button>
             </div>
         </div>
     )
