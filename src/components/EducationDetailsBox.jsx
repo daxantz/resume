@@ -2,28 +2,40 @@ import EducationForm from "./EducationForm"
 import { useState } from "react"
 import { v4 } from "uuid"
 import EducationDetailsItem from "./EducationDetailsItem"
-export default function EducationDetailsBox(){
+export default function EducationDetailsBox({formData, handleChange, educationData, setEducationData, setFormValues}){
 
-    let [inputValues, setInputValues] = useState({
-        school: '',
-        degree: '',
-        startDate: '',
-        endDate: '',
-        location: ''
-    })
+    // let [inputValues, setInputValues] = useState({
+    //     school: '',
+    //     degree: '',
+    //     startDate: '',
+    //     endDate: '',
+    //     location: ''
+    // })
 
-    const handleChange = (input, value) =>{
-        setInputValues(currValues=>({
-            ...currValues,
-            [input]:value
-    }))
-    }
+    // const handleChange = (input, value) =>{
+    //     setInputValues(currValues=>({
+    //         ...currValues,
+    //         [input]:value
+    // }))
+    // }
+    const resetEducationValues = () => {
+        setFormValues(prevState => ({
+          ...prevState,
+          educationInputValues: {
+            school: '',
+            degree: '',
+            startDate: '',
+            endDate: '',
+            location: ''
+          }
+        }));
+      };
 
-    const [data, setData] = useState([])
+    // const [data, setData] = useState([])
 
     const addItem = (inputValues) =>{
         
-        setData(currData =>{
+        setEducationData(currData =>{
             
             return [...currData, {id: v4(),
                 school: inputValues.school,
@@ -35,18 +47,11 @@ export default function EducationDetailsBox(){
             }]
 
         })
-        setInputValues({
-            school: '',
-            degree: '',
-            startDate: '',
-            endDate: '',
-            location: '',
-            
-        })
+        resetEducationValues()
     }
 
     const deleteItem = (id) =>{
-        setData(currData => currData.filter(dataItem => dataItem.id !== id))
+        setEducationData(currData => currData.filter(dataItem => dataItem.id !== id))
         
     }
     let [isShowing, setIsShowing] = useState(false);
@@ -58,11 +63,11 @@ export default function EducationDetailsBox(){
                 <img src="" alt="EYE" />
             </div> */}
             {isShowing ? (
-                <EducationForm data={inputValues} handleChange={handleChange} addItem={addItem} isShowing={isShowing} setIsShowing={setIsShowing} />
+                <EducationForm data={formData.educationInputValues} handleChange={handleChange} addItem={addItem} isShowing={isShowing} setIsShowing={setIsShowing} />
             ):(
                 <div>
-                    {data.map((item) =>(
-                        <EducationDetailsItem key={item.id} item={item} data={data} setData={setData} addItem={addItem} deleteItem={deleteItem}/>
+                    {educationData.map((item) =>(
+                        <EducationDetailsItem key={item.id} item={item} data={educationData} setData={setEducationData} addItem={addItem} deleteItem={deleteItem}/>
                     ))}
                 </div>
             )}
