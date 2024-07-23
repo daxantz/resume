@@ -1,6 +1,8 @@
 import { useState } from "react"
 import ExperienceForm from "./ExperienceForm";
 import { v4 } from "uuid";
+
+import pencil from '../images/pencil.png'
 export default function ExperienceDataItem({item, data,  addItem, setData, deleteItem, handleChange}){
     //condtionally render form/form component if clicked on
     // import a form component
@@ -43,9 +45,9 @@ export default function ExperienceDataItem({item, data,  addItem, setData, delet
             {isEditing ? (
                 <ExperienceForm data={editFormValues} handleChange={handleChange} handleEditingChange={handleEditingChange} addItem={addItem} isEditing={isEditing} updateData={updateData} setIsEditing={setIsEditing} deleteItem={deleteItem}/>
         ): (
-            <div className="item">
+            <div className="item experience-item">
                 <p>{editFormValues.company}</p>
-                <img onClick={()=> setIsEditing(!isEditing)} src="" alt="EYE" />
+                <img onClick={()=> setIsEditing(!isEditing)} className="edit-icon" src={pencil} alt="EYE" />
             </div>
         )}
         </div>

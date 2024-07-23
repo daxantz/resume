@@ -62,7 +62,7 @@ export default function ExperienceDetailsBox({formData, handleChange, experience
     let [isShowing, setIsShowing] = useState(false);
     
     return(
-        <div>
+        <div className="ExperienceDetailsBox box">
             <h2>Experience</h2>
             {isShowing ? (
                 <ExperienceForm data={formData.experienceInputValues} handleChange={handleChange} addItem={addItem} isShowing={isShowing} setIsShowing={setIsShowing} />

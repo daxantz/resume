@@ -2,7 +2,7 @@ export default function ResumeEducationItem({item}){
     return(
         <div>
             
-            <div className="item resume-education-item">
+            <div className="item Resume-Education-Item">
                 <div>
                     <span>{item.startDate} - {item.endDate}</span>
                     <span>{item.location}</span>

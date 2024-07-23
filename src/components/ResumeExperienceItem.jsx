@@ -1,8 +1,8 @@
 export default function ResumeExperienceItem({item}){
     return(
-        <div>
+        
             
-            <div className="item resume-experience-item">
+            <div className="item Resume-Experience-Item">
                 <div>
                     
                     <span>{item.startDate} - {item.endDate} </span>
@@ -15,6 +15,6 @@ export default function ResumeExperienceItem({item}){
                 </div>
                 
             </div>
-        </div>
+        
     )
 }

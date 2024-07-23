@@ -3,7 +3,7 @@ import ResumeExperienceItem from "./ResumeExperienceItem"
 import ResumeExperienceBox from "./ResumeExperienceItem"
 export default function ResumeBody({data, educationData, experienceData}){
     return(
-        <div>
+        <div className="ResumeBody">
             {/* resume education box */}
             <h3>Education</h3>
             {educationData.map((item) =>(

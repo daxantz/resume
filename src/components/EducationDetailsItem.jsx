@@ -1,6 +1,7 @@
 import { useState } from "react";
 import EducationForm from "./EducationForm";
 import { v4 } from "uuid";
+import pencil from '../images/pencil.png'
 
 
 
@@ -45,9 +46,9 @@ export default function EducationDetailsItem({item, data,  addItem, setData, del
             {isEditing ? (
                 <EducationForm data={editFormValues} handleChange={handleChange} handleEditingChange={handleEditingChange} addItem={addItem} isEditing={isEditing} updateData={updateData} setIsEditing={setIsEditing} deleteItem={deleteItem}/>
         ): (
-            <div className="item">
+            <div className="item education-item">
                 <p>{editFormValues.school}</p>
-                <img onClick={()=> setIsEditing(!isEditing)} src="" alt="EYE" />
+                <img onClick={()=> setIsEditing(!isEditing)} className="edit-icon" src={pencil} alt="pencil icon" />
             </div>
         )}
         </div>

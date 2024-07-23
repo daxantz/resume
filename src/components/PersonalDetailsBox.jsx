@@ -1,6 +1,6 @@
 export default function PersonalDetailsBox({data, handleChange}){
     return(
-        <div>   
+        <div className="PersonalDetailsBox box">   
             <h2>Personal Details</h2>
             <form action="">
                 <div className="input-group">

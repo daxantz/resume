@@ -2,7 +2,7 @@ export default function ResumeExperience({data}){
     
 
     return(
-        <div>
+        <div className="ResumeExperience">
             <h3>Education</h3>
             <div className="experience-info">
                 <div>

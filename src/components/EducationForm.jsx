@@ -47,11 +47,11 @@ export default function EducationForm({data, handleChange, handleEditingChange, 
                         <label htmlFor="Degree">Degree</label>
                         <input type="text" id="Degree" name="degree" value={data.degree} onChange={(e)=> isShowing ? handleChange('educationInputValues','degree',e.target.value): handleEditingChange('degree', e.target.value)}/>
                     </div>
-                    <div className="date-group">
+                    <div className="input-group">
                         <label htmlFor="startDate">Start Date</label>
                         <input type="date" id="startDate" name="startDate" value={data.startDate} onChange={(e)=> isShowing ? handleChange('educationInputValues','startDate',e.target.value): handleEditingChange('startDate', e.target.value)}/>
                     </div>
-                    <div className="date-group">
+                    <div className="input-group">
                         <label htmlFor="endDate">End Date</label>
                         <input type="date" id="End Date" name="endDate" value={data.endDate} onChange={(e)=> isShowing ? handleChange('educationInputValues','endDate',e.target.value): handleEditingChange('endDate', e.target.value)}/>
                     </div>

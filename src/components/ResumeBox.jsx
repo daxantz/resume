@@ -3,7 +3,7 @@ import ResumeBody from "./ResumeBody";
 export default function ResumeBox({data, educationData, experienceData}){
     
     return(
-        <div>
+        <div className="ResumeBox">
             {/* resume header */}
             <ResumeHead data={data.personalInputValues} />
             {/* resumebody */}
